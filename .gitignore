@@ -1,0 +1,10 @@
+# Client side
+client/interviewPro/node_modules
+client/interviewPro/.env
+
+
+# Server side  Node
+node/node_modules/
+node/.env
+
+# Server side Flask

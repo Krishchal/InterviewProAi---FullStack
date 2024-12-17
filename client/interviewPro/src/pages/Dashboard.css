@@ -1,0 +1,226 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5; /* Background color */
+  height: 100vh; /* Ensure body takes full viewport height */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+  height: 70px;
+  width: 98%; 
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: rgb(22, 68, 166); 
+  color: white;
+  position:fixed; 
+  top: 0;
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(54, 54, 54, 0.66);
+  z-index: 2; /* Ensure it overlaps other components */
+}
+
+.logo {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notification-btn,
+.profile-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.7em;
+  display: flex;
+  align-items: center;
+}
+
+.profile-btn {
+  font-size: 1.1em;
+}
+
+/* Dropdown styles */
+.profile {
+  position: relative;
+}
+
+
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown a {
+  display: block;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 60px; /* Start the sidebar below the navbar */
+  left: 0;
+  height: calc(100vh - 60px); /* Adjust height to account for navbar */
+  width: 200px;
+  background-color: rgb(19, 46, 153); /* Updated color */
+  color: white;
+  padding: 10px;
+  transition: width 0.3s ease;
+  z-index: 1; /* Ensure it stays behind the navbar */
+  box-shadow: 0 4px 6px rgba(0.171, 0.171, 0.171, 0.171);
+  
+}
+
+.sidebar.minimized {
+  width: 60px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar ul li {
+  padding: 20px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  background-color: #c1c7ce45;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Main Content Styles */
+.main-content {
+  
+  margin-left: 200px;
+  margin-top: 60px; /* Adjust content placement to account for navbar */
+  padding: 20px;
+  height: calc(100vh - 60px); /* Full height of viewport minus navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content both vertically and horizontally */
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+  margin-left: 60px;
+}
+
+/* Header above menu container */
+.header-text {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Centered Menu Container */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 20px;
+  background-color: #e6e6e6; /* Slightly darker than background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  border-radius: 10px;
+  border: 1px;
+}
+
+.menu-item {
+  padding: 30px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.menu-item:hover {
+  background-color: #0878f0;
+  color: white;
+}
+
+.menu-item.selected {
+  background-color: #28a745;
+  color: white;
+  transition: green 0.3s ease, transform 0.3s ease;
+
+}
+
+.menu-item .tick {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2em;
+}
+
+/* Next Button */
+.next-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 19px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+
+.header-text{
+  text-align: center;
+}

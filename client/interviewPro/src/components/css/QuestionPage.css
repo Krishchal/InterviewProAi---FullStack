@@ -1,0 +1,123 @@
+/* Overall container with gray background */
+.question-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff99;
+  padding: 20px;
+}
+
+/* Main content box with fixed size */
+.main-box {
+  background-color: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.256);
+  width: 600px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Title styling */
+.question-page-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4245a7;
+}
+
+/* Question text */
+.question-text {
+  margin: 20px auto;
+  font-size: 20px;
+  color: #040620;
+  word-wrap: break-word;
+}
+
+/* Microphone button */
+.microphone-button {
+  width: 60px;
+  height: 60px;
+  background-color: #007bff; /* Default blue */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  position: relative; /* Required for the animation effect */
+}
+
+/* Change to red and add animation when listening */
+.microphone-button.listening {
+  background-color: #f90808e1; /* Red color */
+  transform: scale(1.2);
+}
+
+/* Listening animation */
+.microphone-button.listening::after {
+  content: " ";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ff4d4d;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+/* Pulse effect for animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Button row */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Quit button */
+.quit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(188, 14, 116);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 33px;
+}
+
+.quit-button:hover {
+  background-color: darkred;
+}
+
+/* Next button */
+.next-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.next-button:hover {
+  background-color: #218838;
+}

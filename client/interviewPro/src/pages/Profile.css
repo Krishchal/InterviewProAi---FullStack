@@ -1,0 +1,101 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  background-color: #b6b5d60c;
+}
+
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.171);
+  overflow: hidden;
+}
+
+.left-side, .right-side {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-side {
+  background-color: #f9f9f9;
+  text-align: center;
+  border-right: 1px solid #e0e0e0;
+}
+
+.avatar-container {
+  position: relative;
+  padding-left: 70px;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  
+}
+
+.upload-label {
+  cursor: pointer;
+}
+
+.user-details {
+  margin-top: 10px;
+}
+
+.pdf-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.expertise-display {
+  margin-top: 15px;
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.form-input, .form-select, .add-btn {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}
+
+.add-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
