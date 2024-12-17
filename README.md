@@ -1,7 +1,8 @@
 
 # Automated Interview System - Full Stack Project
 
-This is a full-stack web application project for an **Automated Interview System**. 
+This is a Final year full-stack web application project for an **Automated Interview System**. 
+Which streamline the interview process by Recommending the candidate expertise question, transcribing audio to text and comparision with pre-defined answerset and displaying the report to users
 It comprises three main components:
 
 1. **Client**: A React.js-based frontend.
