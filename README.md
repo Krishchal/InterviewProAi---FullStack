@@ -153,6 +153,7 @@ Follow the steps below to set up the project.
 - **Flask**: Python backend with Whisper AI
 
 ### Additional Tools
+- OAuth (Google)
 - RabbitMQ: Queue management for audio processing
 - JWT: Authentication
 - Whisper AI: Speech-to-text transcription

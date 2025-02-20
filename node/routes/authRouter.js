@@ -1,10 +1,17 @@
 import express from "express";
-import { loginValidation,signupValidation} from "../middlewares/authValidation.js";
-import { login, signup } from "../controllers/authController.js";
+import passport from "passport";
+import { loginValidation, signupValidation } from "../middlewares/authValidation.js";
+import { login, signup, googleLogin } from "../controllers/authController.js";
 
 const route = express.Router();
 
-route.post("/login",loginValidation,login);
-route.post("/signup",signupValidation,signup);
+// Traditional email/password login
+route.post("/login", loginValidation, login);
+
+// Traditional email/password signup
+route.post("/signup", signupValidation, signup);
+
+// Google OAuth login
+route.post("/google/login", googleLogin); // New endpoint for handling Google login
 
 export default route;

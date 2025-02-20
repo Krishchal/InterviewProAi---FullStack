@@ -1,8 +1,8 @@
 //import bcrypt from "bcrypt";
-import bcrypt from "bcryptjs"
+import bcrypt from "bcryptjs";
 import UserModel from "../models/User.js";
 import jwt from "jsonwebtoken";
-
+import { OAuth2Client } from "google-auth-library";
 export const signup = async (req, res) => {
 	try {
 		const { name, email, password } = req.body;
@@ -36,5 +36,52 @@ export const login = async (req, res) => {
 		res.status(200).json({ message: "Login Successfully", success: true, jwtToken, email, name: user.name });
 	} catch (error) {
 		res.status(500).json({ message: error.message, success: false });
+	}
+};
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+// Google OAuth login
+export const googleLogin = async (req, res) => {
+	const { token } = req.body;
+
+	try {
+		// Verify the token with Google
+		const ticket = await client.verifyIdToken({
+			idToken: token,
+			audience: process.env.GOOGLE_CLIENT_ID,
+		});
+
+		const payload = ticket.getPayload(); // Extract user information
+		const { sub, email, name, picture } = payload;
+
+		// Check if the user exists in the database
+		let user = await UserModel.findOne({ email });
+
+		if (!user) {
+			// Create a new user if one doesn't exist
+			user = await UserModel.create({
+				googleId: sub,
+				email,
+				name,
+				avatar: picture,
+			});
+		}
+
+		// Generate a JWT token
+		const jwtToken = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "7d" });
+
+		res.status(200).json({
+			success: true,
+			message: "Google login successful",
+			jwtToken,
+			name: user.name,
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(401).json({
+			success: false,
+			message: "Invalid Google token",
+		});
 	}
 };

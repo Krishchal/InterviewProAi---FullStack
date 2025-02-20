@@ -5,7 +5,7 @@ export const getRecommendedQuestions = async (req, res) => {
 	try {
 		const { id } = req.params;
 
-        // get user from jwt token
+		// get user from jwt token
 		const userExpertise = await UserExpertise.findById(id);
 
 		if (!userExpertise) {
@@ -18,7 +18,7 @@ export const getRecommendedQuestions = async (req, res) => {
 			level: userExpertise.level,
 		};
 
-		const response = await axios.post("http://localhost:5001/recommend-questions", payload);
+		const response = await axios.post(`${process.env.VITE_FLASK_URL}/recommend-questions`, payload);
 
 		res.status(200).json({ recommended_questions: response.data.recommended_questions });
 	} catch (error) {

@@ -20,5 +20,17 @@ Content-Type: application/json"
 }
 
 ###
-GET http://localhost:8010/api/messages/processed-messages
+GET http://localhost:8010/api/messages/processed-messages?email=itssujan167@gmail.com
 Content-Type: application/json"
+
+###
+POST http://localhost:8010/api/messages/get-session-id
+Content-Type: application/json
+
+{
+    "loggedInEmail": "itssujan167@gmail.com"
+}
+
+
+###
+GET http://localhost:8010/auth/google
